@@ -153,6 +153,20 @@ function claim3($token)
 		}
 	}
 
+	function claim6($token)
+	{
+	$data = '{"promo_code":"GOFOODSUSHI10"}';
+	$claim5 = request("/go-promotions/v1/promotions/enrollments", $token, $data);
+	if ($claim6['success'] == 1)
+		{
+		return $claim5['data']['message'];
+		}
+	  else
+		{
+      save("error_log.txt", json_encode($claim6));
+		return false;
+		}
+	}
 $banner = "
 =========================================
 [+] Auto Create GOJEK + Claim Voucher [+]
